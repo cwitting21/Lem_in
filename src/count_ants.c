@@ -14,25 +14,20 @@
 
 void	count_ants(t_map *map, char *line)
 {
-	int 	i;
-	char 	*str;
+	int		i;
+	char	*s;
 
-	map->format_part = 1;
+	i = 0;
+	map->val->started = 1;
+	map->ants_str = ft_join(map->ants_str, line, 0);
 	if (line[0] == '#')
 		return ;
-	str = ft_strtrim(line);
-	if ((map->num_ants = ft_atoi(str)) <= 0)
+	s = ft_strtrim(line);
+	if ((map->ants = ft_atoi(s)) <= 0)
+		free_map(map, 1);
+	while (s[i] != '\n' && s[i] != 0)
 	{
-		ft_putstr_fd("Error\n", 2);
-		free_map(map);
-		exit(1);
+		if (!ft_isdigit(s[i++]))
+			free_map(map, 1);
 	}
-	i = -1;
-	while (str[++i] != '\n')
-		if (!ft_isdigit(str[i]))
-		{
-			ft_putstr_fd("Error\n", 2);
-			free_map(map);
-			exit(1);
-		}
 }

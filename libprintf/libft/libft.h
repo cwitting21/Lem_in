@@ -88,4 +88,5 @@ t_list				*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem));
 char				*ft_itoa_base(unsigned long n, int base);
 char				*ft_itoa_up_base(unsigned long n, int base);
 char				*ft_long_itoa(long n);
+char				*ft_join(char const *s1, char const *s2, int clean);
 #endif

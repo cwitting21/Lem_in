@@ -91,4 +91,5 @@ add_executable(Lem_in
         src/initialize_map.c
         src/count_ants.c
         src/rooms.c
-        src/links.c)
+        src/links.c
+        src/functions.c)

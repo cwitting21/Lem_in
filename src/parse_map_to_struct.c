@@ -16,26 +16,19 @@ void	parse_map_to_struct(t_map *map)
 {
 	char	*line;
 
-	int fd = open("../maps/subject-1.map", O_RDONLY);
+	int fd = open("../maps/multiple_ways/four_ways", O_RDONLY);
 	while (get_next_line(fd, &line) > 0)
 	{
-		if (map->num_ants == 0)
+		if (map->ants == 0)
 			count_ants(map, line);
-		else if (ft_strchr(line, '-') || map->format_part == 3)
+		else if (ft_strchr(line, '-') || map->val->started == 3)
 			links(map, line);
-		else if ((map->format_part == 1 || map->format_part == 2) && line != NULL)
+		else if ((map->val->started == 1 || map->val->started == 2) && !is_empty(line))
 			rooms(map, line);
 		else
-		{
-			ft_putstr_fd("Error\n", 2);
-			free_map(map);
-			exit(1);
-		}
+			free_map(map, 1);
 	}
-	if (map->num_ants == 0 || map->links[0] == 0)
-	{
-		ft_putstr_fd("Error\n", 2);
-		free_map(map);
-		exit(1);
-	}
+	if (!map->ants || !map->links[0])
+		free_map(map, 1);
+	initialize_map_2(map);
 }

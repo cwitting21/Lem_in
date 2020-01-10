@@ -1,35 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   rooms.c                                            :+:      :+:    :+:   */
+/*   functions.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fculator <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/01/09 19:25:22 by fculator          #+#    #+#             */
-/*   Updated: 2020/01/09 19:25:23 by fculator         ###   ########.fr       */
+/*   Created: 2020/01/10 16:59:33 by fculator          #+#    #+#             */
+/*   Updated: 2020/01/10 16:59:34 by fculator         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "lem-in.h"
 
-void	rooms(t_map *map, char *line)
+int		is_empty(char *s)
 {
-	map->val->started = 2;
-	map->rooms_list = ft_join(map->rooms_list, line, 0);
-	if (line[0] == '#')
-		return ;
-	validate_room(map, line);
-	map->q_rooms++;
+	int i;
+
+	i = 0;
+	while (s[i] && (s[i] == ' '))
+		i++;
+	if (i == ft_strlen(s))
+		return (1);
+	return (0);
 }
 
-void	validate_room(t_map *m, char *line)
+void	is_number(char **r, t_map *m, char *s)
 {
-	char **r;
+	int i;
 
-	r = ft_strsplit(line, ' ');
-	if (r[0][0] == 'L' || r[3] != NULL)
+	i = 0;
+	if (s[0] == '-' || ft_isdigit(s[0]))
+	{
+		while (s[++i])
+		{
+			if (!ft_isdigit(s[i]))
+				free_array(r, m, 1);
+		}
+	}
+	else
 		free_array(r, m, 1);
-	is_number(r, m, r[1]);
-	is_number(r, m, r[2]);
-	free_array(r, m, 0);
 }
