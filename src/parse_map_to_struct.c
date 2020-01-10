@@ -21,9 +21,9 @@ void	parse_map_to_struct(t_map *map)
 	{
 		if (map->ants == 0)
 			count_ants(map, line);
-		else if (ft_strchr(line, '-') || map->val->started == 3)
+		else if (ft_strchr(line, '-') || map->val->part == 3)
 			links(map, line);
-		else if ((map->val->started == 1 || map->val->started == 2) && !is_empty(line))
+		else if ((map->val->part == 1 || map->val->part == 2) && !is_empty(line))
 			rooms(map, line);
 		else
 			free_map(map, 1);

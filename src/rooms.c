@@ -14,7 +14,7 @@
 
 void	rooms(t_map *map, char *line)
 {
-	map->val->started = 2;
+	map->val->part = 2;
 	map->rooms_list = ft_join(map->rooms_list, line, 0);
 	if (line[0] == '#')
 		return ;

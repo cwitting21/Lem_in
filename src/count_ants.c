@@ -18,7 +18,7 @@ void	count_ants(t_map *map, char *line)
 	char	*s;
 
 	i = 0;
-	map->val->started = 1;
+	map->val->part = 1;
 	map->ants_str = ft_join(map->ants_str, line, 0);
 	if (line[0] == '#')
 		return ;

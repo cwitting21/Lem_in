@@ -19,7 +19,7 @@ void	initialize_map(t_map *map)
 	map->rooms_list = ft_strnew(1);
 	map->q_rooms = 0;
 	map->ants = 0;
-	map->val->started = 0;
+	map->val->part = 0;
 	map->curr_room = 0;
 	map->p_ind = 0;
 	map->val->init_2 = 0;

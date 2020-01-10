@@ -25,7 +25,7 @@
 
 typedef struct	s_valid
 {
-	int			started;		// a part of validation
+	int			part;			// a part of validation
 	int			good[2];		// a part of validation
 	int			new_line;		// a part of validation
 	int			init_2;			// a part of validation
@@ -46,18 +46,18 @@ typedef struct	s_map
 	t_valid		*val;
 }				t_map;
 
-int			get_next_line(const int fd, char **line);
-void		initialize_map(t_map *map);
-void		free_map(t_map *map, int code);
-void		free_array(char **array, t_map *m, int code);
-void		parse_map_to_struct(t_map *map);
-void		count_ants(t_map *map, char *line);
-void		rooms(t_map *map,char *line);
-int			is_empty(char *s);
-void		links(t_map *map, char *line);
-void		validate_room(t_map *m, char *line);
-void		is_number(char **r, t_map *m, char *s);
-void		initialize_map_2(t_map *map);
+int				get_next_line(const int fd, char **line);
+void			initialize_map(t_map *map);
+void			free_map(t_map *map, int code);
+void			free_array(char **array, t_map *m, int code);
+void			parse_map_to_struct(t_map *map);
+void			count_ants(t_map *map, char *line);
+void			rooms(t_map *map,char *line);
+int				is_empty(char *s);
+void			links(t_map *map, char *line);
+void			validate_room(t_map *m, char *line);
+void			is_number(char **r, t_map *m, char *s);
+void			initialize_map_2(t_map *map);
 
 
 # endif
