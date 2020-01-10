@@ -89,7 +89,8 @@ add_executable(Lem_in
         src/lem-in.c
         src/parse_map_to_struct.c
         src/initialize_map.c
-        src/count_ants.c
+        src/ants.c
         src/rooms.c
         src/links.c
-        src/functions.c)
+        src/functions.c
+        src/connectivity_matrix.c)

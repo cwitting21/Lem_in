@@ -17,18 +17,17 @@ void	parse_map_to_struct(t_map *map)
 	char	*line;
 
 	int fd = open("../maps/multiple_ways/four_ways", O_RDONLY);
-	while (get_next_line(fd, &line) > 0)
+	while (get_next_line(STDIN_FILENO, &line) > 0)
 	{
 		if (map->ants == 0)
-			count_ants(map, line);
+			ants(map, line);
 		else if (ft_strchr(line, '-') || map->val->part == 3)
-			links(map, line);
+			add_link_list(map, line);
 		else if ((map->val->part == 1 || map->val->part == 2) && !is_empty(line))
-			rooms(map, line);
+			add_room_list(map, line);
 		else
 			free_map(map, 1);
 	}
-	if (!map->ants || !map->links[0])
+	if (map->ants == 0 || map->in->link_list[0] == '\0')
 		free_map(map, 1);
-	initialize_map_2(map);
 }

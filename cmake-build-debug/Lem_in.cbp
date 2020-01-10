@@ -317,7 +317,10 @@
 		<Unit filename="/Users/fculator/Lem_in/libprintf/src/reload_width_pointer.c">
 			<Option target="Lem_in"/>
 		</Unit>
-		<Unit filename="/Users/fculator/Lem_in/src/count_ants.c">
+		<Unit filename="/Users/fculator/Lem_in/src/ants.c">
+			<Option target="Lem_in"/>
+		</Unit>
+		<Unit filename="/Users/fculator/Lem_in/src/connectivity_matrix.c">
 			<Option target="Lem_in"/>
 		</Unit>
 		<Unit filename="/Users/fculator/Lem_in/src/functions.c">

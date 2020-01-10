@@ -2121,32 +2121,59 @@ libprintf/src/reload_width_pointer.c.s:
 	$(MAKE) -f CMakeFiles/Lem_in.dir/build.make CMakeFiles/Lem_in.dir/libprintf/src/reload_width_pointer.c.s
 .PHONY : libprintf/src/reload_width_pointer.c.s
 
-src/count_ants.o: src/count_ants.c.o
+src/ants.o: src/ants.c.o
 
-.PHONY : src/count_ants.o
+.PHONY : src/ants.o
 
 # target to build an object file
-src/count_ants.c.o:
-	$(MAKE) -f CMakeFiles/Lem_in.dir/build.make CMakeFiles/Lem_in.dir/src/count_ants.c.o
-.PHONY : src/count_ants.c.o
+src/ants.c.o:
+	$(MAKE) -f CMakeFiles/Lem_in.dir/build.make CMakeFiles/Lem_in.dir/src/ants.c.o
+.PHONY : src/ants.c.o
 
-src/count_ants.i: src/count_ants.c.i
+src/ants.i: src/ants.c.i
 
-.PHONY : src/count_ants.i
+.PHONY : src/ants.i
 
 # target to preprocess a source file
-src/count_ants.c.i:
-	$(MAKE) -f CMakeFiles/Lem_in.dir/build.make CMakeFiles/Lem_in.dir/src/count_ants.c.i
-.PHONY : src/count_ants.c.i
+src/ants.c.i:
+	$(MAKE) -f CMakeFiles/Lem_in.dir/build.make CMakeFiles/Lem_in.dir/src/ants.c.i
+.PHONY : src/ants.c.i
 
-src/count_ants.s: src/count_ants.c.s
+src/ants.s: src/ants.c.s
 
-.PHONY : src/count_ants.s
+.PHONY : src/ants.s
 
 # target to generate assembly for a file
-src/count_ants.c.s:
-	$(MAKE) -f CMakeFiles/Lem_in.dir/build.make CMakeFiles/Lem_in.dir/src/count_ants.c.s
-.PHONY : src/count_ants.c.s
+src/ants.c.s:
+	$(MAKE) -f CMakeFiles/Lem_in.dir/build.make CMakeFiles/Lem_in.dir/src/ants.c.s
+.PHONY : src/ants.c.s
+
+src/connectivity_matrix.o: src/connectivity_matrix.c.o
+
+.PHONY : src/connectivity_matrix.o
+
+# target to build an object file
+src/connectivity_matrix.c.o:
+	$(MAKE) -f CMakeFiles/Lem_in.dir/build.make CMakeFiles/Lem_in.dir/src/connectivity_matrix.c.o
+.PHONY : src/connectivity_matrix.c.o
+
+src/connectivity_matrix.i: src/connectivity_matrix.c.i
+
+.PHONY : src/connectivity_matrix.i
+
+# target to preprocess a source file
+src/connectivity_matrix.c.i:
+	$(MAKE) -f CMakeFiles/Lem_in.dir/build.make CMakeFiles/Lem_in.dir/src/connectivity_matrix.c.i
+.PHONY : src/connectivity_matrix.c.i
+
+src/connectivity_matrix.s: src/connectivity_matrix.c.s
+
+.PHONY : src/connectivity_matrix.s
+
+# target to generate assembly for a file
+src/connectivity_matrix.c.s:
+	$(MAKE) -f CMakeFiles/Lem_in.dir/build.make CMakeFiles/Lem_in.dir/src/connectivity_matrix.c.s
+.PHONY : src/connectivity_matrix.c.s
 
 src/functions.o: src/functions.c.o
 
@@ -2568,9 +2595,12 @@ help:
 	@echo "... libprintf/src/reload_width_pointer.o"
 	@echo "... libprintf/src/reload_width_pointer.i"
 	@echo "... libprintf/src/reload_width_pointer.s"
-	@echo "... src/count_ants.o"
-	@echo "... src/count_ants.i"
-	@echo "... src/count_ants.s"
+	@echo "... src/ants.o"
+	@echo "... src/ants.i"
+	@echo "... src/ants.s"
+	@echo "... src/connectivity_matrix.o"
+	@echo "... src/connectivity_matrix.i"
+	@echo "... src/connectivity_matrix.s"
 	@echo "... src/functions.o"
 	@echo "... src/functions.i"
 	@echo "... src/functions.s"

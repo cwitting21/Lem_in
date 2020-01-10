@@ -12,22 +12,22 @@
 
 #include "lem-in.h"
 
-void	count_ants(t_map *map, char *line)
+void	ants(t_map *map, char *line)
 {
 	int		i;
-	char	*s;
+	char	*str;
 
 	i = 0;
 	map->val->part = 1;
-	map->ants_str = ft_join(map->ants_str, line, 0);
+	map->in->ants_list = ft_join(map->in->ants_list, line, 0);
 	if (line[0] == '#')
 		return ;
-	s = ft_strtrim(line);
-	if ((map->ants = ft_atoi(s)) <= 0)
+	str = ft_strtrim(line);
+	if ((map->ants = ft_atoi(str)) <= 0)
 		free_map(map, 1);
-	while (s[i] != '\n' && s[i] != 0)
+	while (str[i] != '\n' && str[i] != 0)
 	{
-		if (!ft_isdigit(s[i++]))
+		if (!ft_isdigit(str[i++]))
 			free_map(map, 1);
 	}
 }

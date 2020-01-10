@@ -20,4 +20,7 @@ int		main(void)
 		exit(1);
 	initialize_map(map);
 	parse_map_to_struct(map);
+	initialize_map_2(map);
+	room_table(map);
+	connectivity_matrix(map);
 }

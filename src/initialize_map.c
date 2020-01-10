@@ -14,20 +14,24 @@
 
 void	initialize_map(t_map *map)
 {
-	map->links = ft_strnew(1);
-	map->ants_str = ft_strnew(1);
-	map->rooms_list = ft_strnew(1);
-	map->q_rooms = 0;
+	if (!(map->val = (t_valid *)ft_memalloc(sizeof(t_valid))))
+		exit(1);
+	if (!(map->in = (t_input *)ft_memalloc(sizeof(t_input))))
+		exit(1);
+	map->in->link_list = ft_strnew(1);
+	map->in->ants_list = ft_strnew(1);
+	map->in->rooms_list = ft_strnew(1);
+	map->rooms_count = 0;
 	map->ants = 0;
 	map->val->part = 0;
 	map->curr_room = 0;
-	map->p_ind = 0;
+	map->w_ind = 0;
 	map->val->init_2 = 0;
 	map->val->good[0] = 0;
 	map->val->good[1] = 0;
 	map->rooms = NULL;
-	map->tab = NULL;
-	map->path = NULL;
+	map->matrix = NULL;
+	map->way = NULL;
 }
 
 void	initialize_map_2(t_map *map)
@@ -37,20 +41,20 @@ void	initialize_map_2(t_map *map)
 
 	i = -1;
 	map->val->init_2 = 1;
-	map->path = (int*)ft_memalloc(sizeof(int) * 1000);
-	map->tab = (int**)ft_memalloc(sizeof(int*) * map->q_rooms);
-	map->rooms = (char**)ft_memalloc(sizeof(char*) * (map->q_rooms + 1));
-	while (++i < map->q_rooms)
+	map->way = (int*)ft_memalloc(sizeof(int) * 1000);
+	map->matrix = (int**)ft_memalloc(sizeof(int*) * map->rooms_count);
+	map->rooms = (char**)ft_memalloc(sizeof(char*) * (map->rooms_count + 1));
+	while (++i < map->rooms_count)
 	{
-		map->path[i] = -1;
+		map->way[i] = -1;
 		map->rooms[i] = NULL;
-		map->tab[i] = (int*)ft_memalloc(sizeof(int) * map->q_rooms);
+		map->matrix[i] = (int*)ft_memalloc(sizeof(int) * map->rooms_count);
 		j = -1;
-		while (map->tab[i][++j])
-			map->tab[i][j] = 0;
+		while (map->matrix[i][++j])
+			map->matrix[i][j] = 0;
 	}
 	map->rooms[i] = NULL;
-	map->path[0] = 0;
+	map->way[0] = 0;
 }
 
 
@@ -58,18 +62,19 @@ void	free_map(t_map *map, int code)
 {
 	int i;
 
-	free(map->links);
-	free(map->ants_str);
-	free(map->rooms_list);
+	free(map->in->link_list);
+	free(map->in->ants_list);
+	free(map->in->rooms_list);
 	if (map->val->init_2)
 	{
-		free(map->path);
+		free(map->way);
 		free_array(map->rooms, map, 0);
 		i = -1;
-		while (++i < map->q_rooms)
-			free(map->tab[i]);
-		free(map->tab);
+		while (++i < map->rooms_count)
+			free(map->matrix[i]);
+		free(map->matrix);
 	}
+	free(map->val);
 	free(map);
 	if (code)
 	{
@@ -77,17 +82,4 @@ void	free_map(t_map *map, int code)
 		exit(1);
 	}
 	exit(0);
-}
-
-void	free_array(char **array, t_map *map, int code)
-{
-	int i;
-
-	i = 0;
-	while (array[i])
-		(array[i]) ? free(array[i++]) : 0;
-	free(array);
-	if (code)
-		free_map(map, 1);
-	array = NULL;
 }
